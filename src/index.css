@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 60 30% 98%;
+    --foreground: 215 25% 27%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+
+    --primary: 133 24% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 36 36% 71%;
+    --secondary-foreground: 24 10% 10%;
+
+    --muted: 36 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 36 36% 71%;
+    --accent-foreground: 24 10% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 36 20% 90%;
+    --input: 36 20% 90%;
+    --ring: 133 24% 54%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 133 24% 36%;
+    --sidebar-foreground: 0 0% 100%;
+
+    --sidebar-primary: 133 24% 54%;
+    --sidebar-primary-foreground: 0 0% 100%;
+
+    --sidebar-accent: 133 24% 30%;
+    --sidebar-accent-foreground: 0 0% 100%;
+
+    --sidebar-border: 133 24% 30%;
+    --sidebar-ring: 133 24% 54%;
+  }
+
+  .dark {
+    --background: 210 25% 12%;
+    --foreground: 36 15% 90%;
+
+    --card: 210 25% 14%;
+    --card-foreground: 36 15% 90%;
+
+    --popover: 210 25% 14%;
+    --popover-foreground: 36 15% 90%;
+
+    --primary: 133 24% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 36 36% 71%;
+    --secondary-foreground: 24 10% 10%;
+
+    --muted: 210 25% 25%;
+    --muted-foreground: 36 15% 65%;
+
+    --accent: 36 36% 71%;
+    --accent-foreground: 24 10% 10%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 25% 26%;
+    --input: 210 25% 26%;
+    --ring: 133 24% 54%;
+    
+    --sidebar-background: 133 24% 25%;
+    --sidebar-foreground: 36 15% 90%;
+    --sidebar-primary: 133 24% 54%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 133 24% 20%;
+    --sidebar-accent-foreground: 36 15% 90%;
+    --sidebar-border: 133 24% 15%;
+    --sidebar-ring: 133 24% 54%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f0f4f1' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .scrollbar-slim {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-slim::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-slim::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  .scrollbar-slim::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full;
+  }
+  
+  .scrollbar-slim::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+  }
+
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-healthcare-primary to-healthcare-accent;
+  }
+  
+  .bg-gradient-secondary {
+    @apply bg-gradient-to-r from-healthcare-secondary to-healthcare-light;
+  }
+
+  .bg-gradient-soft {
+    background: linear-gradient(135deg, #f5f7fa 0%, #eef2f7 100%);
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-sm bg-white/30 dark:bg-black/20 border border-white/20 dark:border-white/10;
+  }
+
+  .card-shadow {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  }
+}
+
+/* Custom card styles for CRM */
+.crm-card {
+  @apply bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden transition hover:shadow-md;
+}
+
+.healthcare-gradient {
+  @apply bg-gradient-to-r from-healthcare-primary to-healthcare-secondary;
+}
+
+.vip-badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-patient-vip text-black;
+}
+
+.high-risk-badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-patient-highrisk text-white;
+}
+
+/* Enhanced card designs */
+.enhanced-card {
+  @apply rounded-lg overflow-hidden transition-all duration-300;
+  background: linear-gradient(135deg, #f5f7fa 0%, #eef2f7 100%);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+}
+
+.enhanced-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: var(--radius);
+  z-index: 0;
+  overflow: hidden;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  background: linear-gradient(45deg, #6BAA75, #D4B996);
+  border-radius: inherit;
+}
+
+.gradient-border::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: white;
+  border-radius: calc(var(--radius) - 2px);
+}
+
+/* Sidebar custom scrollbar to match app color palette */
+.sidebar-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.sidebar-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--sidebar-border));
+  border-radius: 8px;
+}
+.sidebar-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.dark .sidebar-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--sidebar-accent));
+}
